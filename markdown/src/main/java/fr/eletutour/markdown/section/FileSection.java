@@ -16,6 +16,11 @@ public class FileSection {
     }
 
     public String toString(){
-        return "";
+        StringBuilder sb = new StringBuilder();
+        for (Section s: sections) {
+            sb.append(s.toString())
+                    .append("\n");
+        }
+        return sb.toString();
     }
 }
