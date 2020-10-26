@@ -14,4 +14,8 @@ public class FileSection {
     public void addSection(Section section){
         this.sections.add(section);
     }
+
+    public String toString(){
+        return "";
+    }
 }

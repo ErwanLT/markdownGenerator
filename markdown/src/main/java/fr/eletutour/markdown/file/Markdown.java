@@ -10,19 +10,27 @@ public class Markdown implements MarkdownFile{
 
     private String name;
 
+    private String title;
+
     private final FileSection sections;
 
     private final FileGenerator fileGenerator;
 
-    public Markdown(String name, FileSection sections, FileGenerator fileGenerator){
+    public Markdown(String name, String title, FileSection sections, FileGenerator fileGenerator){
         this.name = name;
+        this.title = title;
         this.sections = sections;
         this.fileGenerator = fileGenerator;
     }
 
     @Override
+    public void addName(String name) {
+        this.name = name;
+    }
+
+    @Override
     public void addTitle(String title) {
-        this.name = title;
+        this.title = title;
     }
 
     @Override
@@ -32,6 +40,20 @@ public class Markdown implements MarkdownFile{
 
     @Override
     public File generateFile() {
-        return fileGenerator.generateFile(name, sections);
+        return fileGenerator.generateFile(this);
+    }
+
+    @Override
+    public String toString() {
+        if(title != null){
+            return "# " + title + "\n"
+                    + sections.toString();
+        } else {
+            return "";
+        }
+    }
+
+    public String getName(){
+        return this.name;
     }
 }
