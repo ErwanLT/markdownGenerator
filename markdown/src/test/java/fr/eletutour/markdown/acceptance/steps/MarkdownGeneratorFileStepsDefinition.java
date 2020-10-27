@@ -6,6 +6,8 @@ import cucumber.api.java.en.When;
 import fr.eletutour.markdown.file.Markdown;
 import fr.eletutour.markdown.file.MarkdownFile;
 import fr.eletutour.markdown.generator.FileGenerator;
+import fr.eletutour.markdown.items.codes.Code;
+import fr.eletutour.markdown.items.codes.SyntaxHighlightingCode;
 import fr.eletutour.markdown.items.list.OrderedListItem;
 import fr.eletutour.markdown.items.list.UnorderedListItem;
 import fr.eletutour.markdown.section.FileSection;
@@ -25,10 +27,12 @@ public class MarkdownGeneratorFileStepsDefinition {
     private MarkdownFile emptyMarkdownFile;
     private MarkdownFile titleMarkdownFile;
     private MarkdownFile listItemFile;
+    private MarkdownFile codeItemFile;
 
     private File generatedEmptyFile;
     private File generatedTitleFile;
     private File generatedListItemFile;
+    private File generatedCodeItemFile;
 
     @Before
     public void setUp() throws IOException {
@@ -54,6 +58,31 @@ public class MarkdownGeneratorFileStepsDefinition {
 
         listItemFile.addSection(section);
         generatedListItemFile = listItemFile.generateFile();
+    }
+
+    @When("^i ask to generate a file with code block$")
+    public void i_ask_to_generate_a_file_with_code_block() throws Throwable {
+        codeItemFile = new Markdown();
+        codeItemFile.addName("codeItemTest");
+        codeItemFile.addTitle("Code Item File");
+
+        Section section = new Section("Code");
+        section.addItem(new Code("{\n" +
+                "  \"firstName\": \"John\",\n" +
+                "  \"lastName\": \"Smith\",\n" +
+                "  \"age\": 25\n" +
+                "}"));
+        codeItemFile.addSection(section);
+
+        Section section1 = new Section("Syntax Highlighting");
+        section1.addItem(new SyntaxHighlightingCode("{\n" +
+                "  \"firstName\": \"John\",\n" +
+                "  \"lastName\": \"Smith\",\n" +
+                "  \"age\": 25\n" +
+                "}", "json"));
+        codeItemFile.addSection(section1);
+
+        generatedCodeItemFile = codeItemFile.generateFile();
     }
 
     @Then("^i should have an empty file$")
@@ -86,5 +115,18 @@ public class MarkdownGeneratorFileStepsDefinition {
         assertThat(content).contains("1. value").contains("2. value 2");
 
         FileUtils.forceDelete(generatedListItemFile);
+    }
+
+    @Then("^i should have a file with section and code block$")
+    public void i_should_have_a_file_with_section_and_code_block() throws Throwable {
+        assertThat(FilenameUtils.getExtension(generatedCodeItemFile.getName())).isEqualTo("md");
+        String content = Files.readString(Path.of(generatedCodeItemFile.getPath()));
+        assertThat(content).isNotEmpty().contains("# Code Item File");
+        assertThat(content).contains("## Code");
+        assertThat(content).contains("## Syntax Highlighting");
+
+        assertThat(content).contains("```json");
+
+        FileUtils.forceDelete(generatedCodeItemFile);
     }
 }

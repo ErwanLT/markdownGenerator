@@ -12,9 +12,14 @@ public class Markdown implements MarkdownFile{
 
     private String title;
 
-    private final FileSection sections;
+    private FileSection sections;
 
-    private final FileGenerator fileGenerator;
+    private FileGenerator fileGenerator;
+
+    public Markdown(){
+        this.fileGenerator = new FileGenerator();
+        this.sections = new FileSection();
+    }
 
     public Markdown(String name, String title, FileSection sections, FileGenerator fileGenerator){
         this.name = name;
