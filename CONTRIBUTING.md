@@ -68,7 +68,6 @@ Remember how making changes on a *fork* doesn't affect the original code? Well, 
 There are three steps to submitting a pull request:
 1. [Save your changes locally](#save-your-changes-locally)
 2. [Send your changes to your fork](#send-your-changes-to-your-fork)
-3. [Open a Pull Request](#open-a-pull-request)
 
 These instructions are designed to explain the bare minimum steps in a beginner-friendly way. If you find yourself hungry for more details (or get stuck), I applaud and encourage you to continue research on your own. You'll find no lack of amazing articles on this topic.
 
