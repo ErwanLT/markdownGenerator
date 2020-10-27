@@ -1,13 +1,13 @@
 package fr.eletutour.markdown.acceptance.steps;
 
-import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import fr.eletutour.markdown.file.Markdown;
 import fr.eletutour.markdown.file.MarkdownFile;
 import fr.eletutour.markdown.generator.FileGenerator;
-import fr.eletutour.markdown.items.UnorderedListItem;
+import fr.eletutour.markdown.items.list.OrderedListItem;
+import fr.eletutour.markdown.items.list.UnorderedListItem;
 import fr.eletutour.markdown.section.FileSection;
 import fr.eletutour.markdown.section.Section;
 import org.apache.commons.io.FileUtils;
@@ -48,6 +48,10 @@ public class MarkdownGeneratorFileStepsDefinition {
         Section section = new Section("Section Title");
         section.addItem(new UnorderedListItem("test"));
         section.addItem(new UnorderedListItem("test 1"));
+
+        section.addItem(new OrderedListItem(1, "value"));
+        section.addItem(new OrderedListItem(2, "value 2"));
+
         listItemFile.addSection(section);
         generatedListItemFile = listItemFile.generateFile();
     }
@@ -77,6 +81,9 @@ public class MarkdownGeneratorFileStepsDefinition {
         String content = Files.readString(Path.of(generatedListItemFile.getPath()));
         assertThat(content).isNotEmpty().contains("# Title");
         assertThat(content).contains("## Section Title");
+
+        assertThat(content).contains("* test").contains("* test 1");
+        assertThat(content).contains("1. value").contains("2. value 2");
 
         FileUtils.forceDelete(generatedListItemFile);
     }

@@ -1,4 +1,6 @@
-package fr.eletutour.markdown.items;
+package fr.eletutour.markdown.items.list;
+
+import fr.eletutour.markdown.items.Item;
 
 public class UnorderedListItem implements Item {
 
