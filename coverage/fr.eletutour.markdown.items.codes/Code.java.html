@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="text/html;charset=UTF-8" http-equiv="Content-Type"/>
+    <link href="../jacoco-resources/report.css" rel="stylesheet" type="text/css"/>
+    <link href="../jacoco-resources/report.gif" rel="shortcut icon" type="image/gif"/>
+    <title>Code.java</title>
+    <link href="../jacoco-resources/prettify.css" rel="stylesheet" type="text/css"/>
+    <script src="../jacoco-resources/prettify.js" type="text/javascript"></script>
+</head>
+<body onload="window['PR_TAB_WIDTH']=4;prettyPrint()">
+<div class="breadcrumb" id="breadcrumb"><span class="info"><a class="el_session"
+                                                              href="../jacoco-sessions.html">Sessions</a></span><a
+        class="el_report" href="../index.html">markdownGenerator$All_in_markdown.exec</a> &gt; <a class="el_package"
+                                                                                                  href="index.source.html">fr.eletutour.markdown.items.codes</a>
+    &gt; <span class="el_source">Code.java</span></div>
+<h1>Code.java</h1>
+<pre class="source lang-java linenums">/*-
+ * ========================LICENSE_START=================================
+ * markdown
+ * ======================================================================
+ * Copyright (C) 2020 Erwan Le Tutour
+ * ======================================================================
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ * =========================LICENSE_END==================================
+ */
+package fr.eletutour.markdown.items.codes;
+
+import fr.eletutour.markdown.items.Item;
+
+/**
+ * Class that describe a bloc of code inside a markdown file
+ *
+ * @author ewanletutour
+ * @since v1.0
+ */
+public class Code implements Item {
+
+    /**
+     * the string that correspond to the code bloc
+     */
+    private final String value;
+
+    /**
+     * constructor
+     *
+     * @param value the string that correspond to the code bloc
+     */
+<span class="fc" id="L48">    public Code(String value) {</span>
+<span class="fc" id="L49">        this.value = value;</span>
+<span class="fc" id="L50">    }</span>
+
+    @Override
+    public String toString() {
+<span class="fc" id="L54">        return new StringBuilder()</span>
+<span class="fc" id="L55">                .append(&quot;```&quot;)</span>
+<span class="fc" id="L56">                .append(&quot;\n&quot;)</span>
+<span class="fc" id="L57">                .append(value)</span>
+<span class="fc" id="L58">                .append(&quot;\n&quot;)</span>
+<span class="fc" id="L59">                .append(&quot;```&quot;)</span>
+<span class="fc" id="L60">                .append(&quot;\n&quot;)</span>
+<span class="fc" id="L61">                .toString();</span>
+    }
+}
+</pre>
+<div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span>
+</div>
+</body>
+</html>
