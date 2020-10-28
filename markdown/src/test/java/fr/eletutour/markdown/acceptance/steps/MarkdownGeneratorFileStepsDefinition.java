@@ -33,6 +33,7 @@ import fr.eletutour.markdown.file.MarkdownFile;
 import fr.eletutour.markdown.generator.FileGenerator;
 import fr.eletutour.markdown.items.codes.Code;
 import fr.eletutour.markdown.items.codes.SyntaxHighlightingCode;
+import fr.eletutour.markdown.items.link.Link;
 import fr.eletutour.markdown.items.list.OrderedListItem;
 import fr.eletutour.markdown.items.list.UnorderedListItem;
 import fr.eletutour.markdown.items.tasklist.TasklistItem;
@@ -96,6 +97,11 @@ public class MarkdownGeneratorFileStepsDefinition {
         tasklistSection.addItem(new TasklistItem(false, "task 3"));
         contentMarkdownFile.addSection(tasklistSection);
 
+        Section linkSection = new Section("Hyperlinks");
+        linkSection.addItem(new Link("https://github.com", "GitHub"));
+        linkSection.addItem(new Link("https://github.com/ErwanLT", "GitHub", "ErwanLT"));
+        contentMarkdownFile.addSection(linkSection);
+
         generatedFileWithContent = contentMarkdownFile.generateFile();
     }
 
@@ -126,6 +132,10 @@ public class MarkdownGeneratorFileStepsDefinition {
         assertThat(content).contains("- [ ] task 1");
         assertThat(content).contains("- [x] task 2");
         assertThat(content).contains("- [ ] task 3");
+
+        assertThat(content).contains("## Hyperlinks");
+        assertThat(content).contains("[GitHub](https://github.com)");
+        assertThat(content).contains("[GitHub](https://github.com/ErwanLT \"ErwanLT\")");
 
         generatedFileWithContent.delete();
     }
