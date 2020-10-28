@@ -4,14 +4,6 @@ Feature: Markdown file generator
     When i ask to generate the file
     Then i should have an empty file
 
-  Scenario: Generate file with title
+  Scenario: Generate file
     When i ask to generate the file
-    Then i should have a file with title
-
-  Scenario: Generate file with section and list item
-    When i ask to generate a file whith section and list item
-    Then i should have a file with section and list item
-
-  Scenario: Generate file with code
-    When i ask to generate a file with code block
-    Then i should have a file with section and code block
+    Then i should have a file with content

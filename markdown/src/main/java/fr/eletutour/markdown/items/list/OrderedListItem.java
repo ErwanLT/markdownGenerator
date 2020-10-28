@@ -43,6 +43,6 @@ public class OrderedListItem implements Item {
         return new StringBuilder()
                 .append(index+". ")
                 .append(value)
-                .append("\n").toString();
+                .toString();
     }
 }
