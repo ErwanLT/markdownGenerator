@@ -35,6 +35,7 @@ import fr.eletutour.markdown.items.codes.Code;
 import fr.eletutour.markdown.items.codes.SyntaxHighlightingCode;
 import fr.eletutour.markdown.items.list.OrderedListItem;
 import fr.eletutour.markdown.items.list.UnorderedListItem;
+import fr.eletutour.markdown.items.tasklist.TasklistItem;
 import fr.eletutour.markdown.section.FileSection;
 import fr.eletutour.markdown.section.Section;
 import org.apache.commons.io.FilenameUtils;
@@ -89,6 +90,12 @@ public class MarkdownGeneratorFileStepsDefinition {
                 "}", "json"));
         contentMarkdownFile.addSection(sectionCodeHighlight);
 
+        Section tasklistSection = new Section("Tasklist");
+        tasklistSection.addItem(new TasklistItem(false, "task 1"));
+        tasklistSection.addItem(new TasklistItem(true, "task 2"));
+        tasklistSection.addItem(new TasklistItem(false, "task 3"));
+        contentMarkdownFile.addSection(tasklistSection);
+
         generatedFileWithContent = contentMarkdownFile.generateFile();
     }
 
@@ -113,8 +120,12 @@ public class MarkdownGeneratorFileStepsDefinition {
 
         assertThat(content).contains("## Code");
         assertThat(content).contains("## Syntax Highlighting");
-
         assertThat(content).contains("```json");
+
+        assertThat(content).contains("## Tasklist");
+        assertThat(content).contains("- [ ] task 1");
+        assertThat(content).contains("- [x] task 2");
+        assertThat(content).contains("- [ ] task 3");
 
         generatedFileWithContent.delete();
     }
