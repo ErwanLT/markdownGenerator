@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ec06ec44c76d48989b56d2b544da86ed)](https://app.codacy.com/gh/ErwanLT/markdownGenerator?utm_source=github.com&utm_medium=referral&utm_content=ErwanLT/markdownGenerator&utm_campaign=Badge_Grade)
 [![Build Status](https://travis-ci.com/ErwanLT/markdownGenerator.svg?branch=main)](https://travis-ci.com/ErwanLT/markdownGenerator)
 [![codecov](https://codecov.io/gh/ErwanLT/markdownGenerator/branch/main/graph/badge.svg?token=rIZIffZ1ug)](https://codecov.io/gh/ErwanLT/markdownGenerator/)
 # markdownGenerator
