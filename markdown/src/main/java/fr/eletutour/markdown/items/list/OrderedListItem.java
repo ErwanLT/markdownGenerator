@@ -27,13 +27,31 @@ package fr.eletutour.markdown.items.list;
 
 import fr.eletutour.markdown.items.Item;
 
+/**
+ * Class that describe an ordered list item
+ *
+ * @author ewanletutour
+ * @since v1.0
+ */
 public class OrderedListItem implements Item {
 
-    private int index;
+    /**
+     * the index of the element
+     */
+    private final int index;
 
-    private String value;
+    /**
+     * the element value
+     */
+    private final String value;
 
-    public OrderedListItem(int index, String value){
+    /**
+     * constructor
+     *
+     * @param index the index of the element
+     * @param value the element value
+     */
+    public OrderedListItem(int index, String value) {
         this.index = index;
         this.value = value;
     }
@@ -41,7 +59,7 @@ public class OrderedListItem implements Item {
     @Override
     public String toString() {
         return new StringBuilder()
-                .append(index+". ")
+                .append(index + ". ")
                 .append(value)
                 .toString();
     }

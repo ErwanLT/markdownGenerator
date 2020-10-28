@@ -33,18 +33,33 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 
+/**
+ * Classe to generate a markdown file
+ *
+ * @author ewanletutour
+ * @since v1.0
+ */
 public class FileGenerator {
 
+    /**
+     * the markdown extension
+     */
     private static final String FILE_EXTENSION = ".md";
 
+    /**
+     * methode to generate a file from a java template
+     *
+     * @param markdown the markdown object that will be transformed to a file
+     * @return the generated file
+     */
     public File generateFile(Markdown markdown) {
         File markdownFile = new File(markdown.getName() + FILE_EXTENSION);
         boolean result = false;
 
         try {
             result = markdownFile.createNewFile();
-            if(result){
-                if(!markdown.toString().isEmpty()){
+            if (result) {
+                if (!markdown.toString().isEmpty()) {
                     Files.writeString(Path.of(markdownFile.getPath()), markdown.toString(), StandardOpenOption.APPEND);
                 }
             } else {

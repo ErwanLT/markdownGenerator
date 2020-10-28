@@ -31,22 +31,48 @@ import fr.eletutour.markdown.section.Section;
 
 import java.io.File;
 
-public class Markdown implements MarkdownFile{
+/**
+ * implementation of the markdown file
+ *
+ * @author ewanletutour
+ * @since v1.0
+ */
+public class Markdown implements MarkdownFile {
 
+    /**
+     * the sections of the files
+     */
+    private final FileSection sections;
+    /**
+     * the file generator
+     */
+    private final FileGenerator fileGenerator;
+    /**
+     * the file name
+     */
     private String name;
-
+    /**
+     * the main title in the file
+     */
     private String title;
 
-    private FileSection sections;
-
-    private FileGenerator fileGenerator;
-
-    public Markdown(){
+    /**
+     * constructor
+     */
+    public Markdown() {
         this.fileGenerator = new FileGenerator();
         this.sections = new FileSection();
     }
 
-    public Markdown(String name, String title, FileSection sections, FileGenerator fileGenerator){
+    /**
+     * constructor
+     *
+     * @param name          the file name
+     * @param title         the main title of the file
+     * @param sections      the sections of the files
+     * @param fileGenerator the file generator
+     */
+    public Markdown(String name, String title, FileSection sections, FileGenerator fileGenerator) {
         this.name = name;
         this.title = title;
         this.sections = sections;

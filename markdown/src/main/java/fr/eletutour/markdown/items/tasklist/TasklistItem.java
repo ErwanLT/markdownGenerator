@@ -27,18 +27,39 @@ package fr.eletutour.markdown.items.tasklist;
 
 import fr.eletutour.markdown.items.Item;
 
+/**
+ * Class that describe a tasklist item
+ *
+ * @author ewanletutour
+ * @since v1.0
+ */
 public class TasklistItem implements Item {
 
-    private boolean checked;
+    /**
+     * tasklist checked
+     */
+    private final boolean checked;
 
-    private String value;
+    /**
+     * the item value
+     */
+    private final String value;
 
-    public TasklistItem(){
+    /**
+     * constructor
+     */
+    public TasklistItem() {
         this.checked = false;
         this.value = "";
     }
 
-    public TasklistItem(boolean checked, String value){
+    /**
+     * constructor
+     *
+     * @param checked tasklist checked
+     * @param value   the item value
+     */
+    public TasklistItem(boolean checked, String value) {
         this.checked = checked;
         this.value = value;
     }
@@ -46,7 +67,7 @@ public class TasklistItem implements Item {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        if(checked){
+        if (checked) {
             sb.append("- [x] ").append(value);
         } else {
             sb.append("- [ ] ").append(value);

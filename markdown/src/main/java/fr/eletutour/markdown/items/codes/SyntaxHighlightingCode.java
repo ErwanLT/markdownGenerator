@@ -27,21 +27,36 @@ package fr.eletutour.markdown.items.codes;
 
 import fr.eletutour.markdown.items.Item;
 
+/**
+ * Class that describe a bloc of code with syntax highlighting inside a markdown file
+ */
 public class SyntaxHighlightingCode implements Item {
 
-    private String value;
+    /**
+     * the string that correspond to the code bloc
+     */
+    private final String value;
 
-    private String langage;
+    /**
+     * the language to highlight in code bloc
+     */
+    private final String language;
 
-    public SyntaxHighlightingCode(String value, String langage){
+    /**
+     * constructor
+     *
+     * @param value    the string that correspond to the code bloc
+     * @param language the language to highlight in code bloc
+     */
+    public SyntaxHighlightingCode(String value, String language) {
         this.value = value;
-        this.langage = langage;
+        this.language = language;
     }
 
     @Override
     public String toString() {
         return new StringBuilder()
-                .append("```" + langage)
+                .append("```" + language)
                 .append("\n")
                 .append(value)
                 .append("\n")

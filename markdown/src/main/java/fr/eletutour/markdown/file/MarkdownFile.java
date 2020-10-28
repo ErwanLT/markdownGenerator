@@ -29,13 +29,39 @@ import fr.eletutour.markdown.section.Section;
 
 import java.io.File;
 
+/**
+ * the Interface that describe a markdown file
+ *
+ * @author ewanletutour
+ * @since v1.0
+ */
 public interface MarkdownFile {
 
+    /**
+     * methode to add a name to the file
+     *
+     * @param name the file name
+     */
     void addName(String name);
 
+    /**
+     * methode to add a main title in the file
+     *
+     * @param title the main title
+     */
     void addTitle(String title);
 
+    /**
+     * methode to add a section in the file
+     *
+     * @param section the section to add
+     */
     void addSection(Section section);
 
+    /**
+     * methode to generate the file
+     *
+     * @return a markdown file with the content added in sections
+     */
     File generateFile();
 }
