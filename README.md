@@ -34,3 +34,8 @@ A quick module to help generate markdown file
 1. item value
 2. item value
 3. item value
+
+## Tasklist items
+- [x] item value
+- [ ] item value
+- [ ] item value
