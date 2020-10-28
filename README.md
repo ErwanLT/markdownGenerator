@@ -39,3 +39,10 @@ A quick module to help generate markdown file
 - [x] item value
 - [ ] item value
 - [ ] item value
+
+## Link
+### With tooltip
+[GitHub](https://github.com/ErwanLT "ErwanLT")
+
+### Without tooltip
+[GitHub](https://github.com)
