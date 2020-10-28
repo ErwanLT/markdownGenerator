@@ -37,7 +37,7 @@ import java.io.File;
 @CucumberOptions(features = "src/test/resources/features",
         glue = {"fr.eletutour.markdown.acceptance.steps"},
         plugin = {"com.vimalselvam.cucumber.listener.ExtentCucumberFormatter:target/reports/report.html"})
-public class CucumberTest {
+public class CucumberTestUtils {
 
     @AfterClass
     public static void teardown() {

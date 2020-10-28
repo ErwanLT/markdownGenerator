@@ -34,7 +34,7 @@ public class Section {
 
     private String sectionTitle;
 
-    List<Item> items;
+    private List<Item> items;
 
     public Section(String sectionTitle){
         this.sectionTitle = sectionTitle;

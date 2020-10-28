@@ -37,7 +37,6 @@ import fr.eletutour.markdown.items.list.OrderedListItem;
 import fr.eletutour.markdown.items.list.UnorderedListItem;
 import fr.eletutour.markdown.section.FileSection;
 import fr.eletutour.markdown.section.Section;
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 
 import java.io.File;

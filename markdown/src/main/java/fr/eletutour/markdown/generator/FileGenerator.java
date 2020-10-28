@@ -26,7 +26,6 @@
 package fr.eletutour.markdown.generator;
 
 import fr.eletutour.markdown.file.Markdown;
-import fr.eletutour.markdown.section.FileSection;
 
 import java.io.File;
 import java.io.IOException;
