@@ -27,10 +27,25 @@ package fr.eletutour.markdown.items.codes;
 
 import fr.eletutour.markdown.items.Item;
 
+/**
+ * Class that describe a bloc of code inside a markdown file
+ *
+ * @author ewanletutour
+ * @since v1.0
+ */
 public class Code implements Item {
-    private String value;
 
-    public Code(String value){
+    /**
+     * the string that correspond to the code bloc
+     */
+    private final String value;
+
+    /**
+     * constructor
+     *
+     * @param value the string that correspond to the code bloc
+     */
+    public Code(String value) {
         this.value = value;
     }
 

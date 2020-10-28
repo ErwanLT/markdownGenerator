@@ -25,5 +25,8 @@
  */
 package fr.eletutour.markdown.items;
 
+/**
+ * interface that describe an Item that will serve has a section content
+ */
 public interface Item {
 }

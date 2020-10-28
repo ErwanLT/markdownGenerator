@@ -30,22 +30,45 @@ import fr.eletutour.markdown.items.Item;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * file section description
+ *
+ * @author ewanletutour
+ * @since v1.0
+ */
 public class Section {
 
-    private String sectionTitle;
+    /**
+     * the section title
+     */
+    private final String sectionTitle;
 
-    private List<Item> items;
+    /**
+     * the list of items that will be the section content
+     */
+    private final List<Item> items;
 
-    public Section(String sectionTitle){
+    /**
+     * constructor
+     *
+     * @param sectionTitle the section title
+     */
+    public Section(String sectionTitle) {
         this.sectionTitle = sectionTitle;
         this.items = new ArrayList<>();
     }
 
-    public void addItem(Item item){
+    /**
+     * add an item to the section content
+     *
+     * @param item the item to add
+     */
+    public void addItem(Item item) {
         this.items.add(item);
     }
 
-    public String toString(){
+    @Override
+    public String toString() {
         StringBuilder sb = new StringBuilder()
                 .append("## " + sectionTitle)
                 .append("\n");

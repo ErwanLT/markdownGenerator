@@ -27,11 +27,25 @@ package fr.eletutour.markdown.items.list;
 
 import fr.eletutour.markdown.items.Item;
 
+/**
+ * Class that describe an unordered list item
+ *
+ * @author ewanletutour
+ * @since v1.0
+ */
 public class UnorderedListItem implements Item {
 
-    private String value;
+    /**
+     * the item value
+     */
+    private final String value;
 
-    public UnorderedListItem(String value){
+    /**
+     * constructor
+     *
+     * @param value item value
+     */
+    public UnorderedListItem(String value) {
         this.value = value;
     }
 
