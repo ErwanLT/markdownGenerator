@@ -34,6 +34,7 @@ import fr.eletutour.markdown.generator.FileGenerator;
 import fr.eletutour.markdown.items.codes.Code;
 import fr.eletutour.markdown.items.codes.SyntaxHighlightingCode;
 import fr.eletutour.markdown.items.emphasis.Bold;
+import fr.eletutour.markdown.items.emphasis.Italic;
 import fr.eletutour.markdown.items.link.Link;
 import fr.eletutour.markdown.items.list.OrderedListItem;
 import fr.eletutour.markdown.items.list.UnorderedListItem;
@@ -110,6 +111,7 @@ public class MarkdownGeneratorFileStepsDefinition {
 
         Section emphasisSection = new Section("Emphasis");
         emphasisSection.addItem(new Bold("Hello", "Hello world"));
+        emphasisSection.addItem(new Italic("Hello", "Hello world"));
         contentMarkdownFile.addSection(emphasisSection);
 
         generatedFileWithContent = contentMarkdownFile.generateFile();
@@ -157,6 +159,7 @@ public class MarkdownGeneratorFileStepsDefinition {
 
         assertThat(content).contains("## Emphasis");
         assertThat(content).contains("**Hello** world");
+        assertThat(content).contains("*Hello* world");
 
         generatedFileWithContent.delete();
     }
