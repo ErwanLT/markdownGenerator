@@ -47,14 +47,6 @@ public class TasklistItem implements Item {
 
     /**
      * constructor
-     */
-    public TasklistItem() {
-        this.checked = false;
-        this.value = "";
-    }
-
-    /**
-     * constructor
      *
      * @param checked tasklist checked
      * @param value   the item value
