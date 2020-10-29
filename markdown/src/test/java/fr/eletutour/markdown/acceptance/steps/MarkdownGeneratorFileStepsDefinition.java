@@ -36,6 +36,7 @@ import fr.eletutour.markdown.items.codes.SyntaxHighlightingCode;
 import fr.eletutour.markdown.items.link.Link;
 import fr.eletutour.markdown.items.list.OrderedListItem;
 import fr.eletutour.markdown.items.list.UnorderedListItem;
+import fr.eletutour.markdown.items.table.Table;
 import fr.eletutour.markdown.items.tasklist.TasklistItem;
 import fr.eletutour.markdown.section.FileSection;
 import fr.eletutour.markdown.section.Section;
@@ -102,6 +103,10 @@ public class MarkdownGeneratorFileStepsDefinition {
         linkSection.addItem(new Link("https://github.com/ErwanLT", "GitHub", "ErwanLT"));
         contentMarkdownFile.addSection(linkSection);
 
+        Section tableSection = new Section("Table");
+        tableSection.addItem(new Table(new String[]{"header1", "header2"}, new String[][]{{"text1", "text2"}, {"text3", "text4"}}));
+        contentMarkdownFile.addSection(tableSection);
+
         generatedFileWithContent = contentMarkdownFile.generateFile();
     }
 
@@ -136,6 +141,14 @@ public class MarkdownGeneratorFileStepsDefinition {
         assertThat(content).contains("## Hyperlinks");
         assertThat(content).contains("[GitHub](https://github.com)");
         assertThat(content).contains("[GitHub](https://github.com/ErwanLT \"ErwanLT\")");
+
+        assertThat(content.contains("## Table"));
+        assertThat(content).contains(
+                "|header1|header2|\n" +
+                        "|---|---|\n" +
+                        "|text1|text2|\n" +
+                        "|text3|text4|"
+        );
 
         generatedFileWithContent.delete();
     }

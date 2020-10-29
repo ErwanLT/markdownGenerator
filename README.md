@@ -46,3 +46,9 @@ A quick module to help generate markdown file
 
 ### Without tooltip
 [GitHub](https://github.com)
+
+## Table
+|header1|header2|
+|---|---|
+|text1|text2|
+|text3|text4|
