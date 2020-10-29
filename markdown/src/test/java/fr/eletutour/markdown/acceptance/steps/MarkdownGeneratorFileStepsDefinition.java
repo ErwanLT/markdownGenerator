@@ -33,6 +33,7 @@ import fr.eletutour.markdown.file.MarkdownFile;
 import fr.eletutour.markdown.generator.FileGenerator;
 import fr.eletutour.markdown.items.codes.Code;
 import fr.eletutour.markdown.items.codes.SyntaxHighlightingCode;
+import fr.eletutour.markdown.items.emphasis.Bold;
 import fr.eletutour.markdown.items.link.Link;
 import fr.eletutour.markdown.items.list.OrderedListItem;
 import fr.eletutour.markdown.items.list.UnorderedListItem;
@@ -107,6 +108,10 @@ public class MarkdownGeneratorFileStepsDefinition {
         tableSection.addItem(new Table(new String[]{"header1", "header2"}, new String[][]{{"text1", "text2"}, {"text3", "text4"}}));
         contentMarkdownFile.addSection(tableSection);
 
+        Section emphasisSection = new Section("Emphasis");
+        emphasisSection.addItem(new Bold("Hello", "Hello world"));
+        contentMarkdownFile.addSection(emphasisSection);
+
         generatedFileWithContent = contentMarkdownFile.generateFile();
     }
 
@@ -149,6 +154,9 @@ public class MarkdownGeneratorFileStepsDefinition {
                         "|text1|text2|\n" +
                         "|text3|text4|"
         );
+
+        assertThat(content).contains("## Emphasis");
+        assertThat(content).contains("**Hello** world");
 
         generatedFileWithContent.delete();
     }
