@@ -56,3 +56,5 @@ A quick module to help generate markdown file
 ## Emphasis
 ### Bold
 Welcome to this **project**
+### Italic
+Welcome to this *project*
