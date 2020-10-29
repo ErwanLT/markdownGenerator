@@ -52,3 +52,7 @@ A quick module to help generate markdown file
 |---|---|
 |text1|text2|
 |text3|text4|
+
+## Emphasis
+### Bold
+Welcome to this **project**
