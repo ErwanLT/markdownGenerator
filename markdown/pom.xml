@@ -12,6 +12,10 @@
     <organization>
         <name>Erwan Le Tutour</name>
     </organization>
+    <scm>
+        <developerConnection>scm:git:https://github.com/ErwanLT/markdownGenerator/tree/main/markdown
+        </developerConnection>
+    </scm>
 
     <properties>
         <!-- project -->
@@ -145,6 +149,14 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>3.0.0-M1</version>
+                <configuration>
+                    <tagNameFormat>v@{project.version}</tagNameFormat>
+                </configuration>
             </plugin>
         </plugins>
 
