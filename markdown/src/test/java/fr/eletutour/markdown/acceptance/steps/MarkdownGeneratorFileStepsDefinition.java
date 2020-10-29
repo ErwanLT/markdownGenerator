@@ -36,6 +36,7 @@ import fr.eletutour.markdown.items.codes.SyntaxHighlightingCode;
 import fr.eletutour.markdown.items.emphasis.Bold;
 import fr.eletutour.markdown.items.emphasis.BoldItalic;
 import fr.eletutour.markdown.items.emphasis.Italic;
+import fr.eletutour.markdown.items.emphasis.Strikethrough;
 import fr.eletutour.markdown.items.link.Link;
 import fr.eletutour.markdown.items.list.OrderedListItem;
 import fr.eletutour.markdown.items.list.UnorderedListItem;
@@ -114,6 +115,7 @@ public class MarkdownGeneratorFileStepsDefinition {
         emphasisSection.addItem(new Bold("Hello", "Hello world"));
         emphasisSection.addItem(new Italic("Hello", "Hello world"));
         emphasisSection.addItem(new BoldItalic("Hello", "Hello world"));
+        emphasisSection.addItem(new Strikethrough("The world is flat.", "The world is flat. We now know that the world is round."));
         contentMarkdownFile.addSection(emphasisSection);
 
         generatedFileWithContent = contentMarkdownFile.generateFile();
@@ -163,6 +165,7 @@ public class MarkdownGeneratorFileStepsDefinition {
         assertThat(content).contains("**Hello** world");
         assertThat(content).contains("*Hello* world");
         assertThat(content).contains("***Hello*** world");
+        assertThat(content).contains("~~The world is flat.~~ We now know that the world is round.");
 
         generatedFileWithContent.delete();
     }
